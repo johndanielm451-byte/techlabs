@@ -1,0 +1,16 @@
+{
+  "name": "ict-tech-lab-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/api-test.js && node test/pg-glue-test.js && node test/ratelimit-test.js && node test/smoke-test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "pg": "^8.11.3"
+  }
+}

@@ -1,0 +1,21 @@
+databases:
+  - name: ict-tech-lab-db
+    plan: free
+    region: oregon
+
+services:
+  - type: web
+    name: ict-tech-lab
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ict-tech-lab-db
+          property: connectionString
+      - key: PASSWORD_PEPPER
+        generateValue: true
